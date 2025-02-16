@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set the height to make the scroll effect visible */
+        body, html {
+            height: 100%;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling for the container */
+        .container {
+            position: relative;
+            height: 200vh; /* Making the page taller than the viewport */
+        }
+
+        /* The black vertical bar */
+        .scroll-bar {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px; /* Thickness of the bar */
+            background-color: black;
+            transition: height 0.1s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The scroll bar that moves -->
+    <div class="scroll-bar" id="scrollBar"></div>
+
+    <!-- Main content to make the page scrollable -->
+    <div class="container">
+        <h1 style="text-align: center; padding-top: 50px;">Scroll Down to See the Animation!</h1>
+        <p style="text-align: center; padding-top: 30px;">The black bar will grow in height as you scroll.</p>
+    </div>
+
+    <script>
+        // Get the scroll bar element
+        const scrollBar = document.getElementById('scrollBar');
+
+        // Add a scroll event listener
+        window.addEventListener('scroll', function() {
+            // Get the scroll position and the height of the document
+            const scrollPosition = window.scrollY;
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+            // Calculate the percentage of how far the user has scrolled
+            const scrollPercent = scrollPosition / documentHeight;
+
+            // Set the height of the black bar based on the scroll percentage
+            scrollBar.style.height = (scrollPercent * 100) + 'vh'; // 100vh for full page height
+        });
+    </script>
+</body>
+</html>
