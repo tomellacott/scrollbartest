@@ -1,0 +1,41 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the height to make the scroll effect visible */
+body, html {
+    height: 100%;
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling for the container */
+.container {
+    position: relative;
+    height: 200vh; /* Making the page taller than the viewport */
+}
+
+/* The black vertical bar */
+.scroll-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px; /* Thickness of the bar */
+    background-color: black;
+    transition: height 0.1s ease-out;
+}
+
+/* Some text styling */
+h1 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+p {
+    text-align: center;
+    padding-top: 30px;
+}
